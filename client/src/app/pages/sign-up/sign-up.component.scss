@@ -1,0 +1,36 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .container {
+    padding: 1rem 2rem;
+    width: 90%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      letter-spacing: 1px;
+    }
+
+    form {
+      .input-container {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        max-width: 300px;
+
+        button {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

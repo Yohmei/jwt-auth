@@ -1,0 +1,33 @@
+@use "themes" as *;
+
+@use "@nebular/theme/styles/globals" as *;
+
+@include nb-install() {
+  @include nb-theme-global();
+}
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+
+* {
+  font-family: "Outfit", sans-serif !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+.layout {
+  background-color: transparent !important;
+}
+
+nb-layout-footer,
+nb-layout-header {
+  box-shadow: none !important;
+
+  nav {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    justify-content: flex-start !important;
+  }
+}

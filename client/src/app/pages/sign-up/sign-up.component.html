@@ -1,0 +1,48 @@
+<main>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form [formGroup]="sign_up_form" (ngSubmit)="on_submit(sign_up_form.value)">
+      <div class="input-container">
+        <input
+          type="text"
+          placeholder="Name"
+          id="name"
+          nbInput
+          fullWidth
+          status="basic"
+          shape="semi-round"
+          formControlName="name"
+        />
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          status="basic"
+          shape="semi-round"
+          placeholder="Username"
+          id="username"
+          formControlName="username"
+        />
+      </div>
+      <div class="input-container">
+        <input
+          type="password"
+          nbInput
+          fullWidth
+          status="basic"
+          shape="semi-round"
+          placeholder="Password"
+          id="password"
+          formControlName="password"
+        />
+      </div>
+      <div class="input-container">
+        <button nbButton hero status="primary" shape="semi-round" type="submit">
+          SIGN UP
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
