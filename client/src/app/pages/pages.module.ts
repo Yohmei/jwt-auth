@@ -6,9 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProtectedComponent } from './protected/protected.component';
 
 @NgModule({
-  declarations: [SignUpComponent, SignInComponent],
+  declarations: [SignUpComponent, SignInComponent, ProtectedComponent],
   imports: [
     CommonModule,
     NbInputModule,

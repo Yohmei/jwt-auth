@@ -1,4 +1,4 @@
-import { UsersService } from './../../services/users.service';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -12,7 +12,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private form_builder: FormBuilder,
-    private users_service: UsersService
+    private users_service: AuthService
   ) {
     this.sign_up_form = this.form_builder.group({
       name: '',
@@ -22,7 +22,7 @@ export class SignUpComponent implements OnInit {
   }
 
   on_submit(user: string) {
-    this.users_service.add_new_user(user);
+    this.users_service.register(user);
   }
 
   ngOnInit(): void {}

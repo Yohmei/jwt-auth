@@ -1,10 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const passport = require('passport')
-const crypto = require('crypto')
 const cors = require('cors')
-
-const User = require('./schemas/User')
 
 const PORT = process.env.PORT || 3001
 const app = express()

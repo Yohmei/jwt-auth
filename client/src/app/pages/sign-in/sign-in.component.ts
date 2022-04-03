@@ -1,4 +1,4 @@
-import { UsersService } from './../../services/users.service';
+import { AuthService } from './../../services/auth.service';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +13,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private form_builder: FormBuilder,
-    private user_service: UsersService
+    private user_service: AuthService
   ) {
     this.sign_in_form = this.form_builder.group({
       username: '',
