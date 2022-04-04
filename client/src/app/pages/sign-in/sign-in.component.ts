@@ -13,7 +13,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private form_builder: FormBuilder,
-    private user_service: AuthService
+    private auth_service: AuthService
   ) {
     this.sign_in_form = this.form_builder.group({
       username: '',
@@ -22,7 +22,7 @@ export class SignInComponent implements OnInit {
   }
 
   on_submit(user: string) {
-    this.user_service.login(user);
+    this.auth_service.login(user);
   }
 
   ngOnInit(): void {}

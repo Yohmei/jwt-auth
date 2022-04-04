@@ -9,7 +9,16 @@ router.get('/api/test', (req, res) => {
 })
 
 router.get('/api/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.status(200).send({ success: true, message: `You are authorised` })
+  User.findOne({ _id: req.user._id })
+    .then((user) => {
+      if (!user) {
+        return res.status(401).json({ success: false, msg: 'could not find user' })
+      }
+      res.status(200).json({ success: true, user_name: user.name })
+    })
+    .catch((err) => {
+      next(err)
+    })
 })
 
 router.post('/api/sign-up', (req, res) => {

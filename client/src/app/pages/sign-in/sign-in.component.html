@@ -3,7 +3,7 @@
     <h1>Sign In</h1>
     <form [formGroup]="sign_in_form" (ngSubmit)="on_submit(sign_in_form.value)">
       <div class="input-container">
-        <input class="hidden-input" nbInput />
+        <input class="hidden-input" tabindex="-1" nbInput />
       </div>
       <div class="input-container">
         <input
@@ -29,6 +29,10 @@
         <button type="submit" nbButton hero status="primary" shape="semi-round">
           SIGN IN
         </button>
+      </div>
+      <div class="input-container">
+        Don't have an account?
+        <a [routerLink]="['/sign-up']"> SIGN UP </a>
       </div>
     </form>
   </div>
