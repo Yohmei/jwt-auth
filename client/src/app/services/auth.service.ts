@@ -2,31 +2,29 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
-
-export interface User {
-  _id: string;
-  name: string;
-  username: string;
-  hash: string;
-  salt: string;
-  timestamp: Date;
-}
+import { BehaviorSubject } from 'rxjs';
+import { AppComponent } from '../app.component';
+import { User } from '../types/User';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private user: User | null = null;
+  private user = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  get_user_observable = () => {
+    return this.user;
+  };
+
+  set_user = (user: User | null) => {
+    this.user.next(user);
+  };
 
   url(route: string) {
     return 'http://localhost:3001/api' + route;
   }
-
-  set_user = (user: User | null) => {
-    this.user = user;
-  };
 
   set_local_storage(res: { expires: string; token: string }) {
     const { expires, token } = res;
@@ -68,7 +66,6 @@ export class AuthService {
   login(user: string) {
     this.http.post(this.url('/sign-in'), user).subscribe((res) => {
       const response = res as { user: User; expires: string; token: string };
-      console.log(response.user);
       this.set_user(response.user);
       this.set_local_storage(response);
     });
